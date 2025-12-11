@@ -10,6 +10,16 @@ openapi-casegen is a developer tool that automatically generates test case defin
 - ✅ **Comprehensive coverage**: Generates valid, invalid, boundary, and basic access test cases
 - ✅ **Complete endpoint coverage**: Every endpoint gets at least one test case
 
+## Quick Start
+
+```bash
+# Generate test cases from an OpenAPI 3.0 specification
+./openapi-casegen examples/openapi.yaml
+
+# Generate test cases from a Swagger 2.0 specification
+./openapi-casegen examples/swagger.json
+```
+
 ## Architecture
 
 The tool is organized into three main modules for clean separation of concerns:
@@ -33,6 +43,12 @@ Handles test case generation for different data types:
 
 ### 3. **Main Application** (`main.go`)
 Orchestrates the processing pipeline: Spec → Generators → Output
+
+### 4. **Examples** (`examples/`)
+Sample API specifications for testing:
+
+- `examples/openapi.yaml` - OpenAPI 3.0 specification
+- `examples/swagger.json` - Swagger 2.0 specification
 
 ## Test Case Types
 
@@ -92,3 +108,11 @@ The modular design makes it easy to add:
 - **`transformer/` Module**: Convert between specification formats
 
 Each module follows a clear naming convention based on its primary responsibility.
+
+---
+
+## 🤖 AI-Generated Tool
+
+This tool was created with the assistance of AI through an interactive development process. The AI helped design implement features, and organize the codebase while ensuring best practices and comprehensive functionality.
+
+*Built with Cursor IDE and AI collaboration*
