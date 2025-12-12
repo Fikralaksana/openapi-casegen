@@ -18,6 +18,9 @@ openapi-casegen is a developer tool that automatically generates test case defin
 
 # Generate test cases from a Swagger 2.0 specification
 ./openapi-casegen examples/swagger.json
+
+# Validate generated test cases against JUnit XML results
+./openapi-casegen examples/openapi.yaml examples/results.xml
 ```
 
 ## Architecture
@@ -41,14 +44,20 @@ Handles test case generation for different data types:
 - `generators/string.go` - String parameter test cases
 - `generators/boolean.go` - Boolean parameter test cases
 
-### 3. **Main Application** (`main.go`)
-Orchestrates the processing pipeline: Spec → Generators → Output
+### 3. **Validators Module** (`validator/`)
+Validates test implementation against JUnit XML results:
 
-### 4. **Examples** (`examples/`)
-Sample API specifications for testing:
+- `validator/base.go` - JUnit XML parser and test comparison logic
+
+### 4. **Main Application** (`main.go`)
+Orchestrates the processing pipeline: Spec → Generators → Validator → Output
+
+### 5. **Examples** (`examples/`)
+Sample API specifications and test results for testing:
 
 - `examples/openapi.yaml` - OpenAPI 3.0 specification
 - `examples/swagger.json` - Swagger 2.0 specification
+- `examples/results.xml` - Sample JUnit XML test results
 
 ## Test Case Types
 
